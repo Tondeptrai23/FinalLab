@@ -1,0 +1,46 @@
+\doxysection{Policy\+Item.\+h}
+\hypertarget{_policy_item_8h_source}{}\label{_policy_item_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Object.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Integer.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_policy_item}{PolicyItem}}\ :\textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ std::pair<int,\ int>\ \_rangeYearsOfWork;}
+\DoxyCodeLine{00011\ \ \ \ \ std::string\ \_classification;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ \_percentOfSponsoring;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_policy_item}{PolicyItem}}()\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \_percentOfSponsoring\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \_classification\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \_rangeYearsOfWork\ =\ std::pair<int,\ int>(0,\ 0);}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_policy_item}{PolicyItem}}(std::pair<int,\ int>\ rangeYearsOfWork,\ std::string\ classification,\ \textcolor{keywordtype}{int}\ percentOfSponsoring)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \_rangeYearsOfWork\ =\ rangeYearsOfWork;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \_classification\ =\ classification;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \_percentOfSponsoring\ =\ percentOfSponsoring;}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ std::pair<int,\ int>\ getRangeYearsOfWork()\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_rangeYearsOfWork;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ std::string\ getClassification()\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_classification;}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_integer}{Integer}}\ getPercentOfSponsoring()\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_integer}{Integer}}(\_percentOfSponsoring);}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}PolicyItem"{}};}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \};}
+
+\end{DoxyCode}

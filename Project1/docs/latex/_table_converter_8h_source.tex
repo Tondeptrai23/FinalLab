@@ -1,0 +1,133 @@
+\doxysection{Table\+Converter.\+h}
+\hypertarget{_table_converter_8h_source}{}\label{_table_converter_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}IValueConverter.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}TableFormat.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <format>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_table_converter}{TableConverter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_table_format}{TableFormat}}\ \_config;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_table_converter}{TableConverter}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_table_converter}{TableConverter}}(\mbox{\hyperlink{class_table_format}{TableFormat}}\ config);}
+\DoxyCodeLine{00019\ \ \ \ \ std::tuple<std::string,\ std::vector<std::string>>\ prepareTableStructure();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ convert(std::vector<T>\ data);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}TableConverter"{}};}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_table_converter_1_1_row_converter}{RowConverter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::vector<std::string>\ \_columnFormats;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_index\ =\ 1;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::vector<int>\ \_columnSizes;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::vector<std::string>\ \_rowData;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ setRowData(T\ data)\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_table_converter_1_1_row_converter}{RowConverter}}()\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_table_converter_1_1_row_converter}{RowConverter}}(std::vector<std::string>\ columnFormats,\ std::vector<int>\ columnSizes)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\_columnFormats\ =\ columnFormats;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\_columnSizes\ =\ columnSizes;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::string\ convert(T\ data);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}RowConverter"{}};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \};}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00055\ \mbox{\hyperlink{class_table_converter}{TableConverter<T>::TableConverter}}()\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00057\ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00060\ \mbox{\hyperlink{class_table_converter}{TableConverter<T>::TableConverter}}(\mbox{\hyperlink{class_table_format}{TableFormat}}\ config)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Column\ sizes\ should\ be\ at\ least\ the\ size\ of\ the\ headers}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ config.headers().size();\ i++)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (config.headers()[i].size()\ >\ config.columnSizes()[i])\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ config.columnSizes()[i]\ =\ config.headers()[i].size();}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \_config\ =\ config;}
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00072\ std::tuple<std::string,\ std::vector<std::string>>\ \mbox{\hyperlink{class_table_converter}{TableConverter<T>::prepareTableStructure}}()\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ std::vector<std::string>\ columnFormats;}
+\DoxyCodeLine{00074\ \ \ \ \ std::string\ titles\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ tableWidth\ =\ 0;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \_config.columnSizes().size();\ i++)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::string\ currentColumnFormat\ =\ std::vformat(\_config.columnFormat(),\ std::make\_format\_args(\_config.columnSizes()[i]));}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ titles\ +=\ \_config.separator()\ +\ std::vformat(currentColumnFormat,\ std::make\_format\_args(\_config.headers()[i]));}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ \_config.columnSizes().size()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ currentColumnFormat\ +=\ \_config.separator();}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ titles\ +=\ \_config.separator();}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ columnFormats.push\_back(\_config.separator()\ +\ currentColumnFormat);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ tableWidth\ +=\ \_config.columnSizes()[i]\ +\ 2;}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ std::string\ headers\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00091\ \ \ \ \ headers\ +=\ titles\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00092\ \ \ \ \ headers\ +=\ std::string(tableWidth\ +\ \_config.columnSizes().size(),\ \textcolor{charliteral}{'-\/'})\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(headers,\ columnFormats);}
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00098\ std::string\ \mbox{\hyperlink{class_table_converter}{TableConverter<T>::convert}}(std::vector<T>\ items)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ std::tuple\ preprocessed\ =\ prepareTableStructure();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ std::string\ result\ =\ std::get<0>(preprocessed);}
+\DoxyCodeLine{00102\ \ \ \ \ std::vector<std::string>\ columnFormats\ =\ std::get<1>(preprocessed);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ RowConverter\ rowConverter(columnFormats,\ \_config.columnSizes());}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{for}\ (T\ item\ :\ items)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ std::string\ row\ =\ rowConverter.convert(item);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ result\ +=\ row\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00113\ std::string\ \mbox{\hyperlink{class_table_converter}{TableConverter<T>::RowConverter::convert}}(T\ item)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \_rowData\ =\ setRowData(item);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ Overflow\ data\ truncation}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \_rowData.size();\ i++)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_rowData[i].size()\ >\ \_columnSizes[i])\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \_rowData[i]\ =\ \_rowData[i].substr(0,\ \_columnSizes[i]\ -\/\ 3)\ +\ \textcolor{stringliteral}{"{}..."{}};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ std::string\ result\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \_rowData.size();\ i++)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ result\ +=\ std::vformat(\_columnFormats[i],\ std::make\_format\_args(\_rowData[i]));}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00128\ \}}
+
+\end{DoxyCode}

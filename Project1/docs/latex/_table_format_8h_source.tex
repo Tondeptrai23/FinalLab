@@ -1,0 +1,53 @@
+\doxysection{Table\+Format.\+h}
+\hypertarget{_table_format_8h_source}{}\label{_table_format_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Object.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_table_format}{TableFormat}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ std::vector<std::string>\ \_headers;}
+\DoxyCodeLine{00009\ \ \ \ \ std::vector<int>\ \_columnSizes;}
+\DoxyCodeLine{00010\ \ \ \ \ std::string\ \_separator;}
+\DoxyCodeLine{00011\ \ \ \ \ std::string\ \_columnFormat;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_table_format}{TableFormat}}()\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \_headers\ =\ std::vector<std::string>();}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \_columnSizes\ =\ std::vector<int>();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \_separator\ =\ \textcolor{stringliteral}{"{}|"{}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \_columnFormat\ =\ \textcolor{stringliteral}{"{}\{\{:<\{\}\}\}"{}};}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_table_format}{TableFormat}}(std::vector<std::string>\ headers,\ std::vector<int>\ columnSizes,\ std::string\ separator)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \_headers\ =\ headers;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \_columnSizes\ =\ columnSizes;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \_separator\ =\ separator;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \_columnFormat\ =\ \textcolor{stringliteral}{"{}\ \{\{:<\{\}\}\}\ "{}};}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ std::vector<std::string>\ headers()\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_headers;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::vector<int>\ columnSizes()\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_columnSizes;}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ std::string\ separator()\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_separator;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ columnFormat()\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_columnFormat;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}TableFormat"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \};}
+
+\end{DoxyCode}

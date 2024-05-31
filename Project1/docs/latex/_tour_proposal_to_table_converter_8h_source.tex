@@ -1,0 +1,61 @@
+\doxysection{Tour\+Proposal\+To\+Table\+Converter.\+h}
+\hypertarget{_tour_proposal_to_table_converter_8h_source}{}\label{_tour_proposal_to_table_converter_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}TableConverter.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}TourProposal.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Policy.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}DoubleToCurrencyConverter.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}IntegerToPercentageConverter.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tour_proposal_to_table_converter}{TourProposalToTableConverter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_table_converter}{TableConverter}}<TourProposal*>\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_tour_proposal_to_table_converter}{TourProposalToTableConverter}}()\ :\ \mbox{\hyperlink{class_table_converter}{TableConverter<TourProposal*>}}()\ \{\}}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_tour_proposal_to_table_converter}{TourProposalToTableConverter}}(\mbox{\hyperlink{class_table_format}{TableFormat}}\ config)\ :\mbox{\hyperlink{class_table_converter}{TableConverter<TourProposal*>}}(config)\ \{\}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}TourProposalToTableConverter"{}};}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ std::vector<std::string>\ TourProposalToTableConverter::RowConverter::setRowData(\mbox{\hyperlink{class_tour_proposal}{TourProposal}}*\ item)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_double_to_currency_converter}{DoubleToCurrencyConverter}}\ converter(\mbox{\hyperlink{class_currency_format}{CurrencyFormat}}(\textcolor{stringliteral}{"{},"{}},\ \textcolor{stringliteral}{"{}\$"{}},\ 0));}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_integer_to_percentage_converter}{IntegerToPercentageConverter}}\ percentConverter(\mbox{\hyperlink{class_number_format}{NumberFormat}}(\textcolor{stringliteral}{"{},"{}}));}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_policy}{Policy}}*\ policy\ =\ Policy::getInstance();}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_employee}{Employee}}*\ employee\ =\ item-\/>getEmployee();}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_tour}{Tour}}*\ tour\ =\ \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_tour}{Tour}}*\textcolor{keyword}{>}(item-\/>getSponsoredLocation());}
+\DoxyCodeLine{00028\ \ \ \ \ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ std::string\ index\ =\ std::to\_string(\_index++);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ name\ =\ employee-\/>getName();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ std::string\ email\ =\ employee-\/>getEmail();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ std::string\ classification\ =\ policy-\/>getClassification(employee-\/>getYearsOfExperience());}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ std::string\ destination\ =\ tour-\/>getDestination();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_double}{Double}}\ cost\ =\ tour-\/>getCost();}
+\DoxyCodeLine{00041\ \ \ \ \ std::string\ costString\ =\ converter.convert(\textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_object}{Object}}*\textcolor{keyword}{>}(\&cost));}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_integer}{Integer}}\ percentOfSponsorship\ =\ policy-\/>getPercentOfSponsorship(employee-\/>getYearsOfExperience());}
+\DoxyCodeLine{00044\ \ \ \ \ std::string\ percentString\ =\ percentConverter.convert(\textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_object}{Object}}*\textcolor{keyword}{>}(\&percentOfSponsorship));}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_double}{Double}}\ total\ =\ item-\/>getTotalAmount();}
+\DoxyCodeLine{00047\ \ \ \ \ std::string\ totalString\ =\ converter.convert(\textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_object}{Object}}*\textcolor{keyword}{>}(\&total));}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ std::vector<std::string>\ result\ =\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ index,\ name,\ email,\ classification,destination,\ costString,\ percentString,\ totalString}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00055\ \}}
+\DoxyCodeLine{00056\ }
+
+\end{DoxyCode}

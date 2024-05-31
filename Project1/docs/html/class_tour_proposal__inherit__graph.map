@@ -1,0 +1,7 @@
+<map id="TourProposal" name="TourProposal">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,155,103,181"/>
+<area shape="rect" id="Node000002" href="$class_i_proposal.html" title=" " alt="" coords="16,80,92,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="57,122,57,154,51,154,51,122"/>
+<area shape="rect" id="Node000003" href="$class_object.html" title=" " alt="" coords="24,5,84,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="57,48,57,80,51,80,51,48"/>
+</map>

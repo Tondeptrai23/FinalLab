@@ -1,0 +1,9 @@
+<map id="IProposal" name="IProposal">
+<area shape="rect" id="Node000001" title=" " alt="" coords="80,80,156,107"/>
+<area shape="rect" id="Node000003" href="$class_book_proposal.html" title=" " alt="" coords="5,155,108,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,120,69,156,65,153,95,117"/>
+<area shape="rect" id="Node000004" href="$class_tour_proposal.html" title=" " alt="" coords="132,155,229,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="141,117,172,153,168,156,137,120"/>
+<area shape="rect" id="Node000002" href="$class_object.html" title=" " alt="" coords="88,5,148,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,48,121,80,115,80,115,48"/>
+</map>

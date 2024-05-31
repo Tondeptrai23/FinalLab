@@ -1,0 +1,32 @@
+\doxysection{Date.\+h}
+\hypertarget{_date_8h_source}{}\label{_date_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Object.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Double.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_date}{Date}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{int}\ \_day;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{int}\ \_month;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{int}\ \_year;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}();}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}(\textcolor{keywordtype}{int}\ day,\ \textcolor{keywordtype}{int}\ month,\ \textcolor{keywordtype}{int}\ year);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_date}{Date}}\ parse(std::string\ line);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_date}{Date}}\ getToday();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_double}{Double}}\ getYearsToToday();}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Date"{}};}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ getFormattedDate();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+
+\end{DoxyCode}

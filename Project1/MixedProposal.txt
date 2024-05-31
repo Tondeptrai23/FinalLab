@@ -1,0 +1,17 @@
+Employee: Name=Do Minh Long, Email=dmlong@gmail.com, StartDate=05/07/2023
+=> Tour: Destination=Singapore, Cost=$60.69, Link=www.travel.com?id=11512
+
+Employee: Name=Tran Bao Tuan, Email=tbtuan@gmail.com, StartDate=12/05/2022
+=> Tour: Destination=Indonesian, Cost=$55.17, Link=www.travel.com?id=11459
+
+Employee: Name=Cao Hoang Thien, Email=chthien@gmail.com, StartDate=12/05/2021
+=> Tour: Destination=Thailand, Cost=$58.29, Link=www.travel.com?id=66821
+
+Employee: Name=Luu Thai Toan, Email=lttoan@gmail.com, StartDate=05/02/2023
+=> Book: Title=Clean architecture with .Net Core, Price=$60.69, Link=www.amazon.com?id=11512
+
+Employee: Name=Vu Dinh Trong Thang, Email=vdtthang@gmail.com, StartDate=12/12/2019
+=> Book: Title=The Pragmatic Programmer: From Journeyman to Master, Price=$55.17, Link=www.amazon.com?id=11459
+
+Employee: Name=Cao Quang Thang, Email=cqthang@gmail.com, StartDate=12/09/2015
+=> Book: Title=Design Patterns: Elements of Reusable Object-Oriented Software, Price=$58.29, Link=www.amazon.com?id=66821

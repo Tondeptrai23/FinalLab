@@ -1,0 +1,55 @@
+\doxysection{Proposal\+Manager.\+h}
+\hypertarget{_proposal_manager_8h_source}{}\label{_proposal_manager_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Object.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}IProposal.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Double.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_proposal_manager}{ProposalManager}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ std::vector<IProposal*>\ \_proposals;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_proposal_manager}{ProposalManager}}()\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \_proposals\ =\ std::vector<IProposal*>();}
+\DoxyCodeLine{00016\ \ \ \ \ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_proposal_manager}{ProposalManager}}(std::vector<IProposal*>\ proposals)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \_proposals\ =\ proposals;}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_proposal_manager}{\string~ProposalManager}}()\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_i_proposal}{IProposal}}*\ proposal\ :\ \_proposals)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ proposal-\/>getEmployee();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ proposal-\/>getSponsoredLocation();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ proposal;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<IProposal*>\ getProposals()\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_proposals;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_double}{Double}}\ calculateTotalFunds()\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ total\ =\ 0.0f;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_i_proposal}{IProposal}}*\ proposal\ :\ \_proposals)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ total\ +=\ proposal-\/>getTotalAmount().getValue();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_double}{Double}}(total);}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ size()\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_proposals.size();}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}ProposalManager"{}};}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \};}
+
+\end{DoxyCode}

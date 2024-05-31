@@ -1,0 +1,9 @@
+<map id="TextDataProvider" name="TextDataProvider">
+<area shape="rect" id="Node000001" title=" " alt="" coords="134,80,253,107"/>
+<area shape="rect" id="Node000003" href="$class_proposal_text_data_provider.html" title=" " alt="" coords="5,155,176,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,118,110,156,107,152,161,114"/>
+<area shape="rect" id="Node000004" href="$class_tour_proposal_text_data_provider.html" title=" " alt="" coords="200,155,395,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="225,113,280,152,277,156,222,118"/>
+<area shape="rect" id="Node000002" href="$class_object.html" title=" " alt="" coords="164,5,223,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,48,196,80,191,80,191,48"/>
+</map>

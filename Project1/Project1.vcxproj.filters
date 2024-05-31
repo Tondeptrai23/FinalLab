@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Entity">
+      <UniqueIdentifier>{e257e444-3fe5-4ee6-80a4-e212cd679a5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Business">
+      <UniqueIdentifier>{041887a6-7852-4673-8afe-6f800ac97d28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{2fbc3272-7ce5-4c2c-ba34-0eabc101fef6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entity">
+      <UniqueIdentifier>{73356462-6e41-4833-aee9-94d16fa38da2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Business">
+      <UniqueIdentifier>{0999050a-8604-4e17-b26b-8494edffb9ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{86bf3003-a7db-444c-a8bc-57b00603f267}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DAO">
+      <UniqueIdentifier>{fe569460-d764-4ceb-8f00-5dde764c685e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DAO">
+      <UniqueIdentifier>{297c5910-4bab-41aa-b79f-395d2de317a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{f1258953-d805-4fc2-b1b4-8597cbdcd5a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Business\Parser">
+      <UniqueIdentifier>{eff1353c-b13c-4a99-aac5-5bc51a415363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{b69d1d47-d9c6-4e0f-a6f7-19ae027c20c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\Table">
+      <UniqueIdentifier>{b2baedcf-76b3-4ded-9148-993846b2aff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\Value">
+      <UniqueIdentifier>{8c785a01-2499-4053-a491-770cf1ae4886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entity\DataType">
+      <UniqueIdentifier>{eda6db61-2bcf-43ca-9791-2223d7c5f2a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entity\Proposal">
+      <UniqueIdentifier>{deba3069-079c-4e41-8eef-41c4675f89f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Business\Factory">
+      <UniqueIdentifier>{cb3c494a-ca1f-4165-8e57-0e6a334f87b6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Date.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Employee.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Tour.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="ProposalTextDataProvider.h">
+      <Filter>Header Files\DAO</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDataProvider.h">
+      <Filter>Header Files\DAO</Filter>
+    </ClInclude>
+    <ClInclude Include="Book.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="TourProposalTextDataProvider.h">
+      <Filter>Header Files\DAO</Filter>
+    </ClInclude>
+    <ClInclude Include="BookParser.h">
+      <Filter>Header Files\Business\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="EmployeeParser.h">
+      <Filter>Header Files\Business\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="IParsable.h">
+      <Filter>Header Files\Business\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="TourParser.h">
+      <Filter>Header Files\Business\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="TableConverter.h">
+      <Filter>Header Files\UI\Table</Filter>
+    </ClInclude>
+    <ClInclude Include="TableFormat.h">
+      <Filter>Header Files\UI\Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ProposalToTableConverter.h">
+      <Filter>Header Files\UI\Table</Filter>
+    </ClInclude>
+    <ClInclude Include="IValueConverter.h">
+      <Filter>Header Files\UI\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrencyFormat.h">
+      <Filter>Header Files\UI\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleToCurrencyConverter.h">
+      <Filter>Header Files\UI\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="Double.h">
+      <Filter>Header Files\Entity\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Integer.h">
+      <Filter>Header Files\Entity\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="IntegerToPercentageConverter.h">
+      <Filter>Header Files\UI\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberFormat.h">
+      <Filter>Header Files\UI\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="PolicyItem.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="IProposal.h">
+      <Filter>Header Files\Entity\Proposal</Filter>
+    </ClInclude>
+    <ClInclude Include="BookProposal.h">
+      <Filter>Header Files\Entity\Proposal</Filter>
+    </ClInclude>
+    <ClInclude Include="TourProposal.h">
+      <Filter>Header Files\Entity\Proposal</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Header Files\Business\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Policy.h">
+      <Filter>Header Files\Business\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="ProposalFactory.h">
+      <Filter>Header Files\Business\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="ProposalManager.h">
+      <Filter>Header Files\Entity\Proposal</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Date.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Employee.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="TourProposal.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Tour.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Policy.cpp">
+      <Filter>Source Files\Business</Filter>
+    </ClCompile>
+    <ClCompile Include="ProposalTextDataProvider.cpp">
+      <Filter>Source Files\DAO</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="EmployeeParser.cpp">
+      <Filter>Source Files\Business</Filter>
+    </ClCompile>
+    <ClCompile Include="TourParser.cpp">
+      <Filter>Source Files\Business</Filter>
+    </ClCompile>
+    <ClCompile Include="Book.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="BookParser.cpp">
+      <Filter>Source Files\Business</Filter>
+    </ClCompile>
+    <ClCompile Include="BookProposal.cpp">
+      <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleToCurrencyConverter.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="IntegerToPercentageConverter.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="TourProposalTextDataProvider.cpp">
+      <Filter>Source Files\DAO</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TourProposal.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="MixedProposal.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,52 @@
+\doxysection{Currency\+Format.\+h}
+\hypertarget{_currency_format_8h_source}{}\label{_currency_format_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Object.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_currency_format}{CurrencyFormat}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \ \ \ \ std::vector<std::string>\ \_currencyPositiveFormat\ =\ \{\ \textcolor{stringliteral}{"{}\$n"{}},\ \textcolor{stringliteral}{"{}n\$"{}},\ \textcolor{stringliteral}{"{}\$\ n"{}},\ \textcolor{stringliteral}{"{}n\ \$"{}}\ \};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ std::string\ \_currencyThousandSeparator;}
+\DoxyCodeLine{00013\ \ \ \ \ std::string\ \_currencySymbol;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \_currencyPositive;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_currency_format}{CurrencyFormat}}()\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \_currencyThousandSeparator\ =\ \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \_currencySymbol\ =\ \textcolor{stringliteral}{"{}\$"{}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \_currencyPositive\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_currency_format}{CurrencyFormat}}(std::string\ currencyThousandSeparator,\ std::string\ currencySymbol,\ \textcolor{keywordtype}{int}\ currencyPositive)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \_currencyThousandSeparator\ =\ currencyThousandSeparator;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \_currencySymbol\ =\ currencySymbol;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currencyPositive\ <\ 0\ ||\ currencyPositive\ >\ 3)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \_currencyPositive\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \_currencyPositive\ =\ currencyPositive;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ currencyThousandSeparator()\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_currencyThousandSeparator;}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ std::string\ currencySymbol()\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_currencySymbol;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ currencyPositiveFormat()\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_currencyPositiveFormat[\_currencyPositive];}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}CurrencyFormat"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \};}
+
+\end{DoxyCode}

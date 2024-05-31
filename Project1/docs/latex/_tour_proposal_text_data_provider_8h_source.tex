@@ -1,0 +1,28 @@
+\doxysection{Tour\+Proposal\+Text\+Data\+Provider.\+h}
+\hypertarget{_tour_proposal_text_data_provider_8h_source}{}\label{_tour_proposal_text_data_provider_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}TourProposal.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}TextDataProvider.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ From\ version\ 2,\ this\ class\ isn't\ used\ anymore,\ it's\ replaced\ by\ ProposalTextDataProvider}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ This\ class\ is\ kept\ here\ for\ showing\ the\ changes\ between\ versions\ only}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tour_proposal_text_data_provider}{TourProposalTextDataProvider}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_text_data_provider}{TextDataProvider}}\{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_tour_proposal_text_data_provider}{TourProposalTextDataProvider}}()\ :\ \mbox{\hyperlink{class_text_data_provider}{TextDataProvider}}()\ \{\};}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_tour_proposal_text_data_provider}{TourProposalTextDataProvider}}(std::string\ fileName)\ :\ \mbox{\hyperlink{class_text_data_provider}{TextDataProvider}}(fileName)\ \{\};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<TourProposal*>\ getProposals();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}ProposalTextDataProvider"{}};}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \};}
+
+\end{DoxyCode}

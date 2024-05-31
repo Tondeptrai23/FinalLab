@@ -1,0 +1,36 @@
+\doxysection{Book\+Proposal.\+h}
+\hypertarget{_book_proposal_8h_source}{}\label{_book_proposal_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}IProposal.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Employee.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Book.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Double.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_book_proposal}{BookProposal}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_proposal}{IProposal}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_employee}{Employee}}*\ \_employee;}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_book}{Book}}*\ \_book;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_book_proposal}{BookProposal}}();}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_book_proposal}{BookProposal}}(\mbox{\hyperlink{class_employee}{Employee}}*,\ \mbox{\hyperlink{class_book}{Book}}*);}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_book_proposal}{BookProposal}}(\mbox{\hyperlink{class_employee}{Employee}}*,\ \mbox{\hyperlink{class_object}{Object}}*);}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_book_proposal}{\string~BookProposal}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_employee}{Employee}}*\ getEmployee()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_employee;}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_object}{Object}}*\ getSponsoredLocation()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_object}{Object}}*\textcolor{keyword}{>}(\_book);}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_double}{Double}}\ getTotalAmount()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}BookProposal"{}};}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \};}
+
+\end{DoxyCode}

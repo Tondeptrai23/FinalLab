@@ -1,0 +1,8 @@
+Employee: Name=Do Minh Long, Email=dmlong@gmail.com, StartDate=05/07/2023
+=> Tour: Destination=Singapore, Cost=$60.69, Link=www.travel.com?id=11512
+
+Employee: Name=Tran Bao Tuan, Email=tbtuan@gmail.com, StartDate=12/05/2022
+=> Tour: Destination=Indonesian, Cost=$55.17, Link=www.travel.com?id=11459
+
+Employee: Name=Cao Hoang Thien, Email=chthien@gmail.com, StartDate=12/05/2021
+=> Tour: Destination=Thailand, Cost=$58.29, Link=www.travel.com?id=66821

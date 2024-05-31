@@ -1,0 +1,47 @@
+\doxysection{Number\+Format.\+h}
+\hypertarget{_number_format_8h_source}{}\label{_number_format_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Object.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Integer.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_number_format}{NumberFormat}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ std::string\ \_decimalSeparator;}
+\DoxyCodeLine{00009\ \ \ \ \ std::string\ \_thousandsSeparator;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ \_precision;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_number_format}{NumberFormat}}()\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \_decimalSeparator\ =\ \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \_thousandsSeparator\ =\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \_precision\ =\ 2;}
+\DoxyCodeLine{00017\ \ \ \ \ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_number_format}{NumberFormat}}(std::string\ thousandsSeparator)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \_decimalSeparator\ =\ \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \_thousandsSeparator\ =\ thousandsSeparator;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \_precision\ =\ 2;}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_number_format}{NumberFormat}}(std::string\ decimalSeparator,\ std::string\ thousandsSeparator,\ \textcolor{keywordtype}{int}\ precision)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \_decimalSeparator\ =\ decimalSeparator;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \_thousandsSeparator\ =\ thousandsSeparator;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \_precision\ =\ precision;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::string\ decimalSeparator()\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_decimalSeparator;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::string\ thousandsSeparator()\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_thousandsSeparator;}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}NumberFormat"{}};}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \};}
+
+\end{DoxyCode}

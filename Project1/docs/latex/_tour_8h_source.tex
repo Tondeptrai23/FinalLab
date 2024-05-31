@@ -1,0 +1,29 @@
+\doxysection{Tour.\+h}
+\hypertarget{_tour_8h_source}{}\label{_tour_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Object.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Double.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tour}{Tour}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ std::string\ \_destination;}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_double}{Double}}\ \_cost;}
+\DoxyCodeLine{00010\ \ \ \ \ std::string\ \_link;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_tour}{Tour}}();}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_tour}{Tour}}(std::string\ destination,\ \mbox{\hyperlink{class_double}{Double}}\ cost,\ std::string\ link);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ getDestination();}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_double}{Double}}\ getCost();}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ getLink();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Tour"{}};}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \};}
+
+\end{DoxyCode}

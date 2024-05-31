@@ -1,0 +1,43 @@
+\doxysection{Proposal\+Factory.\+h}
+\hypertarget{_proposal_factory_8h_source}{}\label{_proposal_factory_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}IProposal.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Employee.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Object.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_proposal_factory}{ProposalFactory}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_proposal_factory}{ProposalFactory}}*\ \_instance\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00013\ \ \ \ \ std::map<std::string,\ std::function<\mbox{\hyperlink{class_i_proposal}{IProposal}}*\ (\mbox{\hyperlink{class_employee}{Employee}}*,\ \mbox{\hyperlink{class_object}{Object}}*)>>\ \_proposals;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_proposal_factory}{ProposalFactory}}()\ \{\}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_proposal_factory}{ProposalFactory}}*\ getInstance()\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_instance\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \_instance\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_proposal_factory}{ProposalFactory}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_instance;}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ registerWith(std::string\ name,\ std::function<\mbox{\hyperlink{class_i_proposal}{IProposal}}*(\mbox{\hyperlink{class_employee}{Employee}}*,\ \mbox{\hyperlink{class_object}{Object}}*)>\ proposalCreatingFunc)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \_proposals.insert(\{\ name,\ proposalCreatingFunc\ \});}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_i_proposal}{IProposal}}*\ create(std::string\ type,\ \mbox{\hyperlink{class_employee}{Employee}}*\ employee,\ \mbox{\hyperlink{class_object}{Object}}*\ sponsoredLocation)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_proposal}{IProposal}}*\ proposal\ =\ \_proposals[type](employee,\ sponsoredLocation);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ proposal;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}ProposalFactory"{}};}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,33 @@
+\doxysection{Utils.\+h}
+\hypertarget{_utils_8h_source}{}\label{_utils_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }Utils\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_utils_1_1_string}{String}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::string>\ split(std::string\ haystack,\ std::string\ needle)\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ result;}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ startPos\ =\ 0;}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ foundPos\ =\ haystack.find(needle,\ startPos);}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (foundPos\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ foundPos\ -\/\ startPos;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ token\ =\ haystack.substr(startPos,\ count);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.push\_back(token);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ startPos\ =\ foundPos\ +\ needle.length();}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ foundPos\ =\ haystack.find(needle,\ startPos);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ remaining}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ token\ =\ haystack.substr(startPos,\ haystack.length()\ -\/\ startPos);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ result.push\_back(token);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \};}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}

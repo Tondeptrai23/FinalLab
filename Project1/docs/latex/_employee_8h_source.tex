@@ -1,0 +1,34 @@
+\doxysection{Employee.\+h}
+\hypertarget{_employee_8h_source}{}\label{_employee_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Object.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Date.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Double.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_employee}{Employee}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \ \ \ \ std::string\ \_name;}
+\DoxyCodeLine{00010\ \ \ \ \ std::string\ \_email;}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ \_startDate;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_employee}{Employee}}();}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_employee}{Employee}}(std::string\ name,\ std::string\ email,\ \mbox{\hyperlink{class_date}{Date}}\ date);}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_employee}{Employee}}(std::string\ name,\ std::string\ email,\ \textcolor{keywordtype}{int}\ day,\ \textcolor{keywordtype}{int}\ month,\ \textcolor{keywordtype}{int}\ year);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ getName();}
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ getEmail();}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ getStartDate();}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_double}{Double}}\ getYearsOfExperience();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Employee"{}};}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+
+\end{DoxyCode}

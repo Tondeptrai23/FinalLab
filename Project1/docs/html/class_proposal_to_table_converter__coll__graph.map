@@ -1,0 +1,10 @@
+<map id="ProposalToTableConverter" name="ProposalToTableConverter">
+<area shape="rect" id="Node000001" title=" " alt="" coords="16,247,188,273"/>
+<area shape="rect" id="Node000002" href="$class_table_converter.html" title=" " alt="" coords="5,172,199,199"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,214,105,246,99,246,99,214"/>
+<area shape="rect" id="Node000003" href="$class_object.html" title=" " alt="" coords="72,5,132,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="100,48,97,81,98,131,102,171,97,172,92,131,91,81,95,47"/>
+<area shape="rect" id="Node000004" href="$class_table_format.html" title=" " alt="" coords="105,81,198,108"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="121,43,145,79,141,82,116,46"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="139,123,111,173,107,170,135,120"/>
+</map>

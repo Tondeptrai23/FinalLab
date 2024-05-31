@@ -1,0 +1,383 @@
+\chapter{Employee Sponsor -\/ Final Lab}
+\hypertarget{index}{}\label{index}\index{Employee Sponsor -\/ Final Lab@{Employee Sponsor -\/ Final Lab}}
+\label{index_md__d_1_2_dev_test_2_cpp_proj_2_test__28__5__2024_2_r_e_a_d_m_e}%
+\Hypertarget{index_md__d_1_2_dev_test_2_cpp_proj_2_test__28__5__2024_2_r_e_a_d_m_e}%
+ \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Lí do có bài tập này}{Lí do có bài tập này}}\label{index_autotoc_md1}
+Em là Lưu Thái Toàn, học lớp OOP lý thuyết 22\+\_\+4 của thầy và học thực hành của lớp thầy Thái. Tuy thầy Thái có cho làm bài tập của thầy nhưng mà hàm main là do thầy Thái cho, nên em thấy hơi bị giới hạn trong việc thiết kế và không thể tự thiết kế theo bản thân.
+
+Ngoài ra, em thấy thầy chấm bài thi giữa kì của các bạn rất kĩ. Nên em cũng muốn được thầy chấm xem em còn sai sót gì không hay những thứ em thiết kế có gặp vấn đề gì trong quá trình mở rộng. Nếu không có sai sót thì em cũng muốn nhận được ba chữ "{}\+Bài làm tốt"{} của thầy =))).
+
+Thêm một lí do bên lề nữa, là em đang bắt đầu học C\# ASP.\+NET cho backend, và em nghe thầy nói thầy có dạy Lập trình Windows. Em muốn hỏi thầy có gợi ý sách(website) cho hướng đi này để em về nghiên cứu. Em có khả năng đọc được sách tiếng anh, sách giảng dạy hoặc cả document thô ráp. Cảm ơn thầy rất nhiều ạ.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Đôi nét về bài làm}{Đôi nét về bài làm}}\label{index_autotoc_md2}
+Bài làm có cài đặt {\ttfamily Doxygen}, đường dẫn là\+: {\ttfamily ./\+Project1/docs/html/index.html}. Để dễ nhận xét thầy có thể vào xem {\ttfamily Class Hierachy} để xem thiết kế của em. Tuy nhiên... em chưa document code... vì em hơi hơi hơi lười viết tiếng anh. Em sẽ giải thích rõ các {\ttfamily Class} em tự thiết kế trong file này. Và để thầy không cần phải mở code lên đọc, em sẽ để một số phần code mà em nghĩ là quan trọng ở trong file này và giải thích về nó.
+
+Tuy là bài làm dựa trên Final Lab của thầy nhưng thay vì chỉ một loại {\ttfamily Proposal} ({\ttfamily \doxylink{class_tour}{Tour}}/{\ttfamily \doxylink{class_book}{Book}}), em xây dựng các {\ttfamily Class} dựa trên việc có thể sử dụng với bất kì {\ttfamily Proposal} nào và tuân theo {\ttfamily O} trong {\ttfamily SOLID} (có thể mở rộng ra nhiều {\ttfamily Class} khác ngoài {\ttfamily Proposal}).\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Version 1}{Version 1}}\label{index_autotoc_md3}
+Đây là Version ban đầu của bài làm. Dựa trên một loại {\ttfamily Proposal} duy nhất ({\ttfamily \doxylink{class_tour}{Tour}}).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ version1()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_factory}{Factory<IParsable*>::getInstance}}()-\/>registerWith(\textcolor{stringliteral}{"{}Employee"{}},\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_employee_parser}{EmployeeParser}}());}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_factory}{Factory<IParsable*>::getInstance}}()-\/>registerWith(\textcolor{stringliteral}{"{}Tour"{}},\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_tour_parser}{TourParser}}());}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{string}\ filename\ =\ \textcolor{stringliteral}{"{}TourProposal.txt"{}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_tour_proposal_text_data_provider}{TourProposalTextDataProvider}}\ provider(filename);}
+\DoxyCodeLine{\ \ \ \ vector<TourProposal>\ proposals\ =\ provider.getProposals();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ vector<string>\ headers\ =\ \{\ \textcolor{stringliteral}{"{}STT"{}},\ \textcolor{stringliteral}{"{}Name"{}},\ \textcolor{stringliteral}{"{}Classifcation"{}},\ \textcolor{stringliteral}{"{}Destination"{}},\ \textcolor{stringliteral}{"{}Price"{}},\ \textcolor{stringliteral}{"{}Support"{}},\ \textcolor{stringliteral}{"{}Amount"{}}\ \};}
+\DoxyCodeLine{\ \ \ \ vector<int>\ columnSizes\ =\ \{\ 3,\ 15,\ 14,\ 20,\ 14,\ 9,\ 12\ \};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_tour_proposal_to_table_converter}{TourProposalToTableConverter}}\ converter(headers,\ columnSizes);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Version\ 1\ of\ Employee\ Sponsor\ Counting:"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Found\ "{}}\ <<\ proposals.size()\ <<\ \textcolor{stringliteral}{"{}\ proposals\ buy\ travel\ Tour."{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ converter.convert(proposals)\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ total\ =\ 0.0f;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ proposal\ :\ proposals)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ total\ +=\ proposal-\/>getTotalAmount();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Total\ amount\ of\ all\ proposals:\ "{}}\ <<\ total\ <<\ endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Trong phiên bản này, đa số các {\ttfamily Class} đều riêng biệt, ít sự liên kết với nhau. Chủ yếu là được xây dựng dựa trên các {\ttfamily Class} thầy đã định nghĩa sẵn trong các Lab trước.
+
+Tuy đoạn code hoạt động đúng theo yêu cầu nhưng là một thiết kế tệ vì thiếu khả năng mở rộng, các hàm cố định và phải chỉnh sửa ở nhiều nơi.
+
+Các vấn đề có thể kể đến như\+:
+
+
+\begin{DoxyItemize}
+\item Chính sách của công ty là cố định. Nếu muốn thay đổi chính sách, sẽ phải vô các {\ttfamily Class} {\ttfamily \doxylink{class_employee}{Employee}}, {\ttfamily \doxylink{class_tour_proposal}{Tour\+Proposal}} để sửa.
+\item Việc tính toán phần trăm tài trợ không phải nghiệp vụ của 2 {\ttfamily Class} kể trên.
+\item Khi công ty muốn thêm một loại {\ttfamily Proposal} thì phải sửa lại gần như tất cả nghiệp vụ.
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Version 2}{Version 2}}\label{index_autotoc_md4}
+Đây là Version được tạo nên dựa trên 2 yêu cầu\+: {\ttfamily Future \doxylink{class_policy}{Policy} Changes} và {\ttfamily Multiple Proposal}.\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Hàm main\+:}{Hàm main\+:}}\label{index_autotoc_md5}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ config()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_policy}{Policy}}*\ policy\ =\ Policy::getInstance();}
+\DoxyCodeLine{\ \ \ \ policy-\/>registerWith(\{\ 0,\ 2\ \},\ \textcolor{stringliteral}{"{}Fresher"{}},\ 35);}
+\DoxyCodeLine{\ \ \ \ policy-\/>registerWith(\{\ 2,\ 3\ \},\ \textcolor{stringliteral}{"{}Junior"{}},\ 45);}
+\DoxyCodeLine{\ \ \ \ policy-\/>registerWith(\{\ 3,\ 4\ \},\ \textcolor{stringliteral}{"{}Middle"{}},\ 60);}
+\DoxyCodeLine{\ \ \ \ policy-\/>registerWith(\{\ 4,\ 20\ \},\ \textcolor{stringliteral}{"{}Senior"{}},\ 75);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_factory}{Factory<IParsable*>}}*\ factory=\ \mbox{\hyperlink{class_factory}{Factory<IParsable*>::getInstance}}();}
+\DoxyCodeLine{\ \ \ \ factory-\/>registerWith(\textcolor{stringliteral}{"{}Employee"{}},\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_employee_parser}{EmployeeParser}}());}
+\DoxyCodeLine{\ \ \ \ factory-\/>registerWith(\textcolor{stringliteral}{"{}Tour"{}},\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_tour_parser}{TourParser}}());}
+\DoxyCodeLine{\ \ \ \ factory-\/>registerWith(\textcolor{stringliteral}{"{}Book"{}},\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_book_parser}{BookParser}}());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ This\ seems\ to\ be\ over-\/engineered,\ i\ dont\ know\ any\ alternatives\ way\ to\ do\ this...}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_proposal_factory}{ProposalFactory}}*\ proposalFac\ =\ ProposalFactory::getInstance()}
+\DoxyCodeLine{\ \ \ \ proposalFac-\/>registerWith("{}\mbox{\hyperlink{class_tour}{Tour}}"{},\ [](\mbox{\hyperlink{class_employee}{Employee}}*\ employee,\ \mbox{\hyperlink{class_object}{Object}}*\ tour)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_tour_proposal}{TourProposal}}(employee,\ \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_tour}{Tour}}*\textcolor{keyword}{>}(tour));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ proposalFac-\/>registerWith(\textcolor{stringliteral}{"{}Book"{}},\ [](\mbox{\hyperlink{class_employee}{Employee}}*\ employee,\ \mbox{\hyperlink{class_object}{Object}}*\ book)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_book_proposal}{BookProposal}}(employee,\ \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_book}{Book}}*\textcolor{keyword}{>}(book));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ version2()\ \{}
+\DoxyCodeLine{\ \ \ \ config2();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{string}\ filename\ =\ \textcolor{stringliteral}{"{}MixedProposal.txt"{}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_proposal_text_data_provider}{ProposalTextDataProvider}}\ provider(filename);}
+\DoxyCodeLine{\ \ \ \ vector<IProposal*>\ proposals\ =\ provider2.getProposals();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ vector<string>\ headers\ =\ \{\ \textcolor{stringliteral}{"{}STT"{}},\ \textcolor{stringliteral}{"{}Name"{}},\ \textcolor{stringliteral}{"{}Classifcation"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}OfferName"{}},\ \textcolor{stringliteral}{"{}Price"{}},\ \textcolor{stringliteral}{"{}Support"{}},\ \textcolor{stringliteral}{"{}Amount"{}}\ \};}
+\DoxyCodeLine{\ \ \ \ vector<int>\ columnSizes\ =\ \{\ 3,\ 20,\ 14,\ 20,\ 15,\ 10,\ 13\ \};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_proposal_to_table_converter}{ProposalToTableConverter}}\ converter(headers,\ columnSizes);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Version\ 2\ of\ Employee\ Sponsor\ Counting:"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Found\ "{}}\ <<\ proposals2.size()\ <<\ \textcolor{stringliteral}{"{}\ proposals."{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ converter2.convert(proposals)\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ total\ =\ 0.0f;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ proposal\ :\ proposals)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ total\ +=\ proposal-\/>getTotalAmount();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ proposal;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Total\ amount\ of\ all\ proposals:\ "{}}\ <<\ total\ <<\ endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Xử lý Future Policy Changes}{Xử lý Future Policy Changes}}\label{index_autotoc_md6}
+Tạo {\ttfamily Class \doxylink{class_policy}{Policy}} đảm nhiệm việc xử lý các chính sách của công ty. {\ttfamily \doxylink{class_policy}{Policy}} sẽ chứa các {\ttfamily \doxylink{class_policy_item}{Policy\+Item}} là nội dung của các chính sách, và có 2 hàm chính\+: {\ttfamily register\+With()} và các hàm {\ttfamily getter()} để lấy dữ liệu dựa trên {\ttfamily years\+Of\+Work}.
+
+Ngoài ra, mỗi công ty chỉ có 1 chính sách thuộc dạng {\ttfamily Kinh nghiệm -\/ Trình độ -\/ Phần trăm}. Vì vậy, chỉ nên tồn tại 1 {\ttfamily Instance \doxylink{class_policy}{Policy}} duy nhất trong chương trình -\/-\/\texorpdfstring{$>$}{>} Sử dụng {\ttfamily Singleton Pattern} cho {\ttfamily \doxylink{class_policy}{Policy}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{class_policy_item}{PolicyItem}}\ :\textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{\textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ pair<int,\ int>\ \_rangeYearsOfWork;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{string}\ \_classification;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ \_percentOfSponsoring;}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{class_policy}{Policy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{\textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ vector<PolicyItem>\ \_policyItems;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_policy}{Policy}}*\ \_instance\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_policy}{Policy}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_policy}{Policy}}*\ getInstance();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ registerWith(pair<int,\ int>\ yearsOfWork,\ \textcolor{keywordtype}{string}\ classification,\ \textcolor{keywordtype}{int}\ percentOfSponsoring);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ getPercentOfSponsorship(\textcolor{keywordtype}{double}\ yearsOfWork);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{string}\ getClassification(\textcolor{keywordtype}{double}\ yearsOfWork);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{Xử lý việc định nghĩa Multiple Proposal}{Xử lý việc định nghĩa Multiple Proposal}}\label{index_autotoc_md7}
+Thay vì để {\ttfamily \doxylink{class_tour_proposal}{Tour\+Proposal}} tồn tại độc lập, cho {\ttfamily Class} này kế thừa {\ttfamily Interface \doxylink{class_i_proposal}{IProposal}}. Khi cần thêm các {\ttfamily Proposal} mới cũng sẽ kế thừa {\ttfamily Interface} này.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_proposal}{IProposal}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_employee}{Employee}}*\ getEmployee()\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_object}{Object}}*\ getSponsoredLocation()\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_double}{Double}}\ getTotalAmount()\ =\ 0;}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{Xử lý việc tạo Multiple Proposal}{Xử lý việc tạo Multiple Proposal}}\label{index_autotoc_md8}
+Tạo thêm một {\ttfamily \doxylink{class_proposal_factory}{Proposal\+Factory}} chịu trách nhiệm tạo các {\ttfamily Proposal Instance} dựa trên tên của loại tài trợ ({\ttfamily \doxylink{class_tour}{Tour}}, {\ttfamily \doxylink{class_book}{Book}}). Lưu ý rằng {\ttfamily Class} này vẫn được cài đặt bằng {\ttfamily Singleton}.
+
+Có 2 lí do cho việc phải tạo {\ttfamily Class} này\+:
+
+
+\begin{DoxyItemize}
+\item Một là tương tự như với {\ttfamily \doxylink{class_factory}{Factory}\texorpdfstring{$<$}{<}IParsable\texorpdfstring{$\ast$}{*}\texorpdfstring{$>$}{>}}, cần một thứ có thể tạo {\ttfamily Instance} một cách dynamic dựa trên một chuỗi.
+\item Hai là tuy tồn tại {\ttfamily \doxylink{class_factory}{Factory}\texorpdfstring{$<$}{<}IProposal\texorpdfstring{$\ast$}{*}\texorpdfstring{$>$}{>}}, nhưng nó không hoạt động theo cách chúng ta cần. Việc khởi tạo {\ttfamily IProposal\texorpdfstring{$\ast$}{*}} phải dựa trên 2 {\ttfamily Class} {\ttfamily \doxylink{class_employee}{Employee}} và {\ttfamily Sponsored\+Location}. Nhưng hàm {\ttfamily create()} của {\ttfamily \doxylink{class_factory}{Factory}\texorpdfstring{$<$}{<}IProposal\texorpdfstring{$\ast$}{*}\texorpdfstring{$>$}{>}} không có tham số truyền vào. Nên ta cần phải tạo một {\ttfamily \doxylink{class_factory}{Factory}} mới có duy nhất 1 nghiệp vụ là tạo {\ttfamily Proposal}.
+\end{DoxyItemize}
+
+Ban đầu, {\ttfamily \doxylink{class_proposal_factory}{Proposal\+Factory}} được định nghĩa như sau\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{class_proposal_factory}{ProposalFactory}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{\textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ map<string,\ IProposal*>\ \_proposals;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_i_proposal}{IProposal}}*\ create(\textcolor{keywordtype}{string}\ type,\ \mbox{\hyperlink{class_employee}{Employee}}*\ employee,\ \mbox{\hyperlink{class_object}{Object}}*\ sponsoredLocation)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_proposal}{IProposal}}*\ proposal\ =\ \_proposals[type];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ proposal-\/>setEmployee(employee);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ proposal-\/>setSponsored(sponsoredLocation);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ proposal;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_i_proposal}{IProposal}}*\ registerWith(\textcolor{keywordtype}{string}\ type,\ \mbox{\hyperlink{class_i_proposal}{IProposal}}*\ proposal)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_proposals.insert(\{\ name,\ proposal\ \});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Call\ this\ in\ main}}
+\DoxyCodeLine{ProposalFactory::getInstance()-\/>registerWith(\textcolor{stringliteral}{"{}Tour"{}},\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_tour_proposal}{TourProposal}}());}
+
+\end{DoxyCode}
+
+
+Đoạn code này hoạt động tốt, không xảy ra vấn đề. Nhưng theo mặt cá nhân thì em không thích việc sử dụng {\ttfamily setter()} ngay bên dưới hàm tạo. Và việc định nghĩa các hàm {\ttfamily setter()} cho tất cả các {\ttfamily Proposal} chỉ cho mục đích tạo {\ttfamily Instance} không phải là một thiết kế tốt. Xét về tính nghiệp vụ, {\ttfamily một lời nói ra ngựa giỏi đuổi không kịp}, nên nếu một lời đề nghị mà có thể thay đổi bất thường thì vô lý. Nên em đã xem xét về các phương án khác. Và việc sử dụng {\ttfamily lambda} là giải pháp duy nhất mà em nghĩ ra và thực hiện được.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{class_proposal_factory}{ProposalFactory}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{\textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ map<string,\ function<\mbox{\hyperlink{class_i_proposal}{IProposal}}*\ (\mbox{\hyperlink{class_employee}{Employee}}*,\ \mbox{\hyperlink{class_object}{Object}}*)>>\ \_proposals;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_i_proposal}{IProposal}}*\ create(\textcolor{keywordtype}{string}\ type,\ \mbox{\hyperlink{class_employee}{Employee}}*\ employee,\ \mbox{\hyperlink{class_object}{Object}}*\ sponsoredLocation)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_proposal}{IProposal}}*\ proposal\ =\ \_proposals[type](employee,\ sponsoredLocation);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ proposal;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_i_proposal}{IProposal}}*\ registerWith(\textcolor{keywordtype}{string}\ type,\ function<\mbox{\hyperlink{class_i_proposal}{IProposal}}*(\mbox{\hyperlink{class_employee}{Employee}}*,\ \mbox{\hyperlink{class_object}{Object}}*)>\ proposalCreatingFunc)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_proposals.insert(\{\ name,\ proposalCreatingFunc\ \});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Call\ this\ in\ main}}
+\DoxyCodeLine{ProposalFactory::getInstance()-\/>registerWith(\textcolor{stringliteral}{"{}Tour"{}},\ [](\mbox{\hyperlink{class_employee}{Employee}}*\ employee,\ \mbox{\hyperlink{class_object}{Object}}*\ tour)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_tour_proposal}{TourProposal}}(employee,\ \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_tour}{Tour}}*\textcolor{keyword}{>}(tour));}
+\DoxyCodeLine{\ \ \ \ \});}
+
+\end{DoxyCode}
+
+
+Em cảm thấy giải pháp này vẫn chưa đủ tốt, nhưng em đã thử tìm hiểu về các {\ttfamily Creational Pattern} khác mà vẫn không nghĩ ra. Em mong là thầy có phương án giải quyết tốt hơn cho vấn đề này.\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{Tổng kết}{Tổng kết}}\label{index_autotoc_md9}
+Phiên bản này có thể coi là hoàn thiện về vấn đề nghiệp vụ và khả năng mở rộng của chương trình. Nhưng vẫn còn vài vấn đề có thể tiếp tục nâng cấp\+:
+
+
+\begin{DoxyItemize}
+\item Tạo một {\ttfamily Class \doxylink{class_table_converter}{Table\+Converter}} để {\ttfamily Proposal\+Converter} kế thừa, và {\ttfamily Class} này có khả năng được kế thừa để tạo nhiều loại bảng.
+\item Xây dựng {\ttfamily Class \doxylink{class_double_to_currency_converter}{Double\+To\+Currency\+Converter}} để đa dạng hóa cách in tiền tệ.
+\item Xây dựng {\ttfamily Class \doxylink{class_proposal_manager}{Proposal\+Manager}} để quản lý mảng {\ttfamily Proposal}.
+\end{DoxyItemize}\hypertarget{index_autotoc_md10}{}\doxysection{\texorpdfstring{Version 3}{Version 3}}\label{index_autotoc_md10}
+Đây là Version hiện tại của chương trình.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ version3()\{}
+\DoxyCodeLine{\ \ \ \ config2();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{string}\ filename\ =\ \textcolor{stringliteral}{"{}MixedProposal.txt"{}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_proposal_text_data_provider}{ProposalTextDataProvider}}\ provider(filename);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_proposal_manager}{ProposalManager}}\ manager(provider.getProposals());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::vector<string>\ headers\ =\ \{\ \textcolor{stringliteral}{"{}STT"{}},\ \textcolor{stringliteral}{"{}Name"{}},\ \textcolor{stringliteral}{"{}Classifcation"{}},\ \textcolor{stringliteral}{"{}OfferName"{}},\ \textcolor{stringliteral}{"{}Price"{}},\ \textcolor{stringliteral}{"{}Support"{}},\ \textcolor{stringliteral}{"{}Amount"{}}\ \};}
+\DoxyCodeLine{\ \ \ \ std::vector<int>\ columnSizes\ =\ \{\ 3,\ 20,\ 14,\ 20,\ 15,\ 10,\ 13\ \};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_table_format}{TableFormat}}\ tableConfig3(headers,\ columnSizes,\ \textcolor{stringliteral}{"{}|"{}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_proposal_to_table_converter}{ProposalToTableConverter}}\ converter(tableConfig3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Version\ 3\ of\ Employee\ Sponsor\ Counting:"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Found\ "{}}\ <<\ manager.size()\ <<\ \textcolor{stringliteral}{"{}\ proposals."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ converter.convert(manager.getProposals())\ <<\ std::endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_double_to_currency_converter}{DoubleToCurrencyConverter}}\ currencyConverter(\mbox{\hyperlink{class_currency_format}{CurrencyFormat}}(\textcolor{stringliteral}{"{},"{}},\ \textcolor{stringliteral}{"{}\$"{}},\ 0));}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_double}{Double}}\ totalFunds\ =\ manager.calculateTotalFunds();}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Total\ amount\ of\ all\ proposals:\ "{}}\ <<\ currencyConverter.convert(\textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_object}{Object}}*\textcolor{keyword}{>}(\&totalFunds));}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md11}{}\doxysubsection{\texorpdfstring{Về {\ttfamily Double\+To\+Currency\+Converter}}{Về {\ttfamily Double\+To\+Currency\+Converter}}}\label{index_autotoc_md11}
+Được xây dựng tương tự {\ttfamily Class Integer\+To\+Currency\+Converter} trong Lab08 của thầy.\hypertarget{index_autotoc_md12}{}\doxysubsection{\texorpdfstring{Về {\ttfamily Proposal\+Manager}}{Về {\ttfamily Proposal\+Manager}}}\label{index_autotoc_md12}
+Được xây dựng để đưa nghiệp vụ tính toán Tổng tiền tài trợ từ hàm Main về đúng đối tượng.\hypertarget{index_autotoc_md13}{}\doxysubsection{\texorpdfstring{Về ý tưởng của {\ttfamily Table\+Converter}}{Về ý tưởng của {\ttfamily Table\+Converter}}}\label{index_autotoc_md13}
+Thực hiện dựa trên ý tưởng xây dựng bảng một cách tự động và áp dụng được cho nhiều kiểu dữ liệu khác nhau. Ví dụ ta đang có bảng của đề bài như sau\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<string>\ headers\ =\ \{\ \textcolor{stringliteral}{"{}STT"{}},\ \textcolor{stringliteral}{"{}Name"{}},\ \textcolor{stringliteral}{"{}Classifcation"{}},\ \textcolor{stringliteral}{"{}OfferName"{}},\ \textcolor{stringliteral}{"{}Price"{}},\ \textcolor{stringliteral}{"{}Support"{}},\ \textcolor{stringliteral}{"{}Amount"{}}\ \};}
+\DoxyCodeLine{std::vector<int>\ columnSizes\ =\ \{\ 3,\ 20,\ 14,\ 20,\ 15,\ 10,\ 13\ \};}
+
+\end{DoxyCode}
+
+
+Nếu ta muốn thêm cột {\ttfamily Email} của nhân viên, chúng ta thêm như thế nào? Trong trường hợp bình thường, sử dụng {\ttfamily std\+::format} hoặc {\ttfamily std\+::istringstream}, ta sẽ phải vào trong đoạn code {\ttfamily convert()} để sửa. Hoặc một nghiệp vụ dễ dàng hơn nhiều, đó là thu nhỏ cột {\ttfamily Amount} xuống còn 12 ô, ta cũng vẫn phải vào sửa trực tiếp {\ttfamily convert()}. Việc này rất bất tiện.
+
+Để xử lý việc này, ta sẽ cố gắng biến hàm {\ttfamily convert()} có thể tự động thực hiện việc này chỉ dựa vào {\ttfamily headers} và {\ttfamily column\+Sizes} truyền vào. Nghĩa là thay vì gán giá trị {\ttfamily 5} cố định vào bên trong {\ttfamily std\+::format("{}\{\+:$>$5\}"{})}, ta sẽ gán 1 biến {\ttfamily x} vào {\ttfamily std\+::format("{}\{\+:$>$x\}"{})}.
+
+Tuy {\ttfamily std\+::format} không cho phép làm điều đó, nhưng một hàm trong cùng thư viện {\ttfamily \texorpdfstring{$<$}{<}format\texorpdfstring{$>$}{>}} có thể. Đó là {\ttfamily std\+::vformat()}.
+
+Ta có thể làm được một việc như sau\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::string\ formattedString\ =\ \textcolor{stringliteral}{"{}He\{\},\ World!"{}};}
+\DoxyCodeLine{std::cout\ <<\ std::vformat(formattedString,\ std::make\_format\_args(\textcolor{stringliteral}{"{}llo"{}}));\ \textcolor{comment}{//\ Output:\ Hello,\ World!}}
+
+\end{DoxyCode}
+
+
+Có thể thấy việc định nghĩa một chuỗi như trên là không thể với {\ttfamily std\+::format()} nhưng hoàn toàn có thể với {\ttfamily std\+::vformat()}. Điều này chứng minh ý tưởng xây dựng bảng tự động hoàn toàn có thể thực thi được.
+
+Cụ thể sẽ thực hiện tương tự như sau\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ precision\ =\ 0;}
+\DoxyCodeLine{cin\ >>\ precision;\ \textcolor{comment}{//\ Example:\ input\ 2\ -\/>\ precision\ =\ 2}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{string}\ formattedString\ =\ std::format(\textcolor{stringliteral}{"{}\{\{:.\{\}f\}\}"{}},\ precision);\ \textcolor{comment}{//\ "{}\{\{"{}\ in\ format\ is\ considered\ as\ "{}\{"{}}}
+\DoxyCodeLine{\textcolor{keywordtype}{string}\ result\ =\ std::vformat(formattedString,\ std::make\_format\_args(12.345678));\ \textcolor{comment}{//\ formattedString\ =\ "{}\{:.2f\}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::cout\ <<\ result;\ \textcolor{comment}{//\ Output:\ 12.34}}
+
+\end{DoxyCode}
+
+
+Việc sử dụng {\ttfamily std\+::vformat()} sẽ dễ dàng xử lý được việc xây dựng tự động bảng. Ngoài ra, {\ttfamily std\+::vformat()} sẽ phải đi kèm với {\ttfamily std\+::make\+\_\+format\+\_\+args()}.\hypertarget{index_autotoc_md14}{}\doxysubsection{\texorpdfstring{Về cách cài đặt của {\ttfamily Table\+Converter}}{Về cách cài đặt của {\ttfamily Table\+Converter}}}\label{index_autotoc_md14}
+Để {\ttfamily \doxylink{class_table_converter}{Table\+Converter}} là một {\ttfamily Class} chung cho nhiều dữ liệu và có thể truyền tham số bất kì vào hàm {\ttfamily convert()} thì {\ttfamily Template} là lựa chọn tối ưu nhất.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{class_table_converter}{TableConverter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{\textcolor{keyword}{protected}:}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_table_format}{TableFormat}}\ \_config;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{protected}:}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_table_converter}{TableConverter}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_table_converter}{TableConverter}}(\mbox{\hyperlink{class_table_format}{TableFormat}}\ config);}
+\DoxyCodeLine{\ \ \ \ std::tuple<std::string,\ std::vector<std::string>>\ prepareTableStructure();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ std::string\ convert(std::vector<T>\ data);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{protected}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{class\ }RowConverter\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::vector<std::string>\ \_columnFormats;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_index\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::vector<int>\ \_columnSizes;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::vector<std::string>\ \_rowData;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ setRowData(T\ data)\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ RowConverter(std::vector<std::string>\ columnFormats,\ std::vector<int>\ columnSizes)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ this-\/>\_columnFormats\ =\ columnFormats;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ this-\/>\_columnSizes\ =\ columnSizes;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::string\ convert(T\ data);}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Implementation\ Snippet}}
+
+\end{DoxyCode}
+
+
+Ngay bên dưới sẽ cài đặt tất cả các hàm trong {\ttfamily Class} này trừ hàm {\ttfamily Row\+Converter\+::set\+Row\+Data()} (sẽ nhắc lại sau).
+
+Mô tả nhanh cách hoạt động của {\ttfamily Table\+Converter\+::convert(vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>} items)}\+:
+
+
+\begin{DoxyItemize}
+\item Bước 0\+: Khởi tạo {\ttfamily Converter} với {\ttfamily headers, column\+Sizes, separator} (gọi từ bên ngoài) với các giá trị {\ttfamily column\+Sizes} thỏa điều kiện.
+\item Bước 1\+: Gọi hàm {\ttfamily prepare\+Table\+Structure()}, hàm này xây dựng nên các cột {\ttfamily headers} bằng {\ttfamily std\+::vformat}. Đồng thời, tạo {\ttfamily vector\texorpdfstring{$<$}{<}string\texorpdfstring{$>$}{>} \+\_\+column\+Formats} là mảng các chuỗi có kiểu như sau\+: {\ttfamily "{}\{\+:$>$x\}"{}}.
+\item Bước 2\+: Khởi tạo {\ttfamily Row\+Converter} với {\ttfamily \+\_\+column\+Formats} được tạo thành từ Bước 1.
+\item Bước 3\+: Với mỗi giá trị {\ttfamily item} trong mảng dữ liệu, sẽ được xây dựng thành một hàng trong bảng bằng cách gọi {\ttfamily Row\+Converter\+::convert(item)}.
+\item Bước 3.\+1\+: Cài đặt các dữ liệu của hàng theo từng cột bằng hàm {\ttfamily set\+Row\+Data(item)}.
+\item Bước 3.\+2\+: Tạo lần lượt từng cột dữ liệu bằng cách sử dụng\+: {\ttfamily vformat(\+\_\+column\+Formats\mbox{[}i\mbox{]}, make\+\_\+format\+\_\+args(\+\_\+row\+Data\mbox{[}i\mbox{]}))}
+\item Bước 4\+: Trả về bảng kết quả.
+\end{DoxyItemize}
+
+Cách sử dụng {\ttfamily Class \doxylink{class_table_converter}{Table\+Converter}}, ví dụ với {\ttfamily \doxylink{class_proposal_to_table_converter}{Proposal\+To\+Table\+Converter}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{class_proposal_to_table_converter}{ProposalToTableConverter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_table_converter}{TableConverter}}<IProposal*>\ \{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_proposal_to_table_converter}{ProposalToTableConverter}}()\ :\ \mbox{\hyperlink{class_table_converter}{TableConverter}}<\mbox{\hyperlink{class_i_proposal}{IProposal}}*>()\ \{\}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_proposal_to_table_converter}{ProposalToTableConverter}}(\mbox{\hyperlink{class_table_format}{TableFormat}}\ config)\ :\mbox{\hyperlink{class_table_converter}{TableConverter}}<\mbox{\hyperlink{class_i_proposal}{IProposal}}*>(config)\ \{\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{vector<string>\ ProposalToTableConverter::RowConverter::setRowData(\mbox{\hyperlink{class_i_proposal}{IProposal}}*\ item)\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Snippet\ to\ get\ a\ row\ data\ column\ by\ column}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Có thể thấy, với {\ttfamily Class \doxylink{class_table_converter}{Table\+Converter}} như thế này, có thể giảm tải hầu hết các công việc khi muốn in ra các loại bảng khác nhau. Việc chúng ta cần làm duy nhất là tạo một {\ttfamily Class} mới kế thừa {\ttfamily \doxylink{class_table_converter}{Table\+Converter}\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} và định nghĩa những dữ liệu sẽ được in ra bằng hàm {\ttfamily Row\+Converter\+::set\+Row\+Data\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}. {\ttfamily Một lần làm sướng cả đời}.
+
+Để thấy chi tiết kết quả, thầy có thể chạy thử hàm main trong chương trình của em. Hai {\ttfamily Class} {\ttfamily \doxylink{class_proposal_to_table_converter}{Proposal\+To\+Table\+Converter}} và {\ttfamily \doxylink{class_tour_proposal_to_table_converter}{Tour\+Proposal\+To\+Table\+Converter}} chỉ khác nhau {\ttfamily headers, column\+Sizes, set\+Row\+Data()}.\hypertarget{index_autotoc_md15}{}\doxysection{\texorpdfstring{Version 4}{Version 4}}\label{index_autotoc_md15}
+Đây là Version của tương lai =)))). Khi mà em hết lười và trả được hết đống Technical Debt mà em để lại.
+
+Các Technical Debt cần trả\+:
+
+
+\begin{DoxyItemize}
+\item Sử dụng {\ttfamily smart\+\_\+pointer} thay cho con trỏ thông thường.
+\item Wrap {\ttfamily String} và {\ttfamily Vector}.
+\item Catch hết {\ttfamily Exception}. Hiện tại thì trong code em không hề có 1 dòng {\ttfamily try...catch...} nào...
+\item Document lại các hàm trong Code.
+\end{DoxyItemize}\hypertarget{index_autotoc_md16}{}\doxysection{\texorpdfstring{Tổng kết}{Tổng kết}}\label{index_autotoc_md16}
+Ban đầu em chỉ định giải thích sơ sài những gì em làm. Nhưng mà càng viết càng thấy nói sơ sài thì không rõ được ý tưởng. Viết một hồi em nhận ra là có khi thầy đọc code của em lại hiểu hơn cả khi đọc những gì em viết =)))). Em đã cố gắng hết sức hoàn thành những gì em nghĩ sớm nhất có thể để thầy chấm chung với các bạn, nhưng mà đã mất tận 3 ngày, nên em đã không kịp trả đống nợ em nói trên.
+
+Nhưng mà nếu thầy đọc tới đây thì em cảm ơn thầy rất nhiều vì đã đọc code của em, mặc dù thầy không có trách nhiệm với em trong phần thực hành. Thầy dạy rất hay, nên gần như lúc nào chào thầy cả lớp cũng vỗ tay. Em có dự định học C\# nên em sẽ đăng kí lớp lập trình Windows, mong là được học thầy lần nữa. Em cảm ơn thầy. 

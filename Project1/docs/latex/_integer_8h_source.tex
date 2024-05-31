@@ -1,0 +1,29 @@
+\doxysection{Integer.\+h}
+\hypertarget{_integer_8h_source}{}\label{_integer_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Object.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_integer}{Integer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_object}{Object}}\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{int}\ \_value;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_integer}{Integer}}()\ :\ \_value(0)\ \{\}}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_integer}{Integer}}(\textcolor{keywordtype}{int}\ value)\ :\ \_value(value)\ \{\}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ getValue()\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_value;}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ setValue(\textcolor{keywordtype}{int}\ value)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \_value\ =\ value;}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Integer"{}};}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \};}
+
+\end{DoxyCode}

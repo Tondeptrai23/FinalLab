@@ -1,0 +1,34 @@
+\doxysection{Tour\+Proposal.\+h}
+\hypertarget{_tour_proposal_8h_source}{}\label{_tour_proposal_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}IProposal.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Employee.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Tour.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tour_proposal}{TourProposal}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_proposal}{IProposal}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_employee}{Employee}}*\ \_employee;}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_tour}{Tour}}*\ \_tour;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_tour_proposal}{TourProposal}}();}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_tour_proposal}{TourProposal}}(\mbox{\hyperlink{class_employee}{Employee}}*,\ \mbox{\hyperlink{class_tour}{Tour}}*);}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_tour_proposal}{TourProposal}}(\mbox{\hyperlink{class_employee}{Employee}}*,\ \mbox{\hyperlink{class_object}{Object}}*);}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_tour_proposal}{\string~TourProposal}}();}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_employee}{Employee}}*\ getEmployee()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_employee;}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_object}{Object}}*\ getSponsoredLocation()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_object}{Object}}*\textcolor{keyword}{>}(\_tour);}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_double}{Double}}\ getTotalAmount()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00026\ \ \ \ \ std::string\ toString()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}TourProposal"{}};}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \};}
+
+\end{DoxyCode}
