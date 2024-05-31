@@ -392,5 +392,6 @@ Các Technical Debt cần trả:
 Ban đầu em chỉ định giải thích sơ sài những gì em làm. Nhưng mà càng viết càng thấy nói sơ sài thì không rõ được ý tưởng. Viết một hồi em nhận ra là có khi thầy đọc code của em lại hiểu hơn cả khi đọc những gì em viết =)))). Em đã cố gắng hết sức hoàn thành những gì em nghĩ sớm nhất có thể để thầy chấm chung với các bạn, nhưng mà đã mất tận 3 ngày, nên em đã không kịp trả đống nợ em nói trên.
 
 Nhưng mà nếu thầy đọc tới đây thì em cảm ơn thầy rất nhiều vì đã đọc code của em, mặc dù thầy không có trách nhiệm với em trong phần thực hành. Thầy dạy rất hay, nên gần như lúc nào chào thầy cả lớp cũng vỗ tay. Em có dự định học C# nên em sẽ đăng kí lớp lập trình Windows, mong là được học thầy lần nữa. Em cảm ơn thầy.
-#   F i n a l L a b  
+#   F i n a l L a b 
+ 
  
